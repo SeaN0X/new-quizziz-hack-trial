@@ -75,7 +75,7 @@ function getRoomHash(){
 }
 
 const msg = `%c 
-    Script created by gbaranski#5119! (Modified and repaired by SeaN0X)
+    Script created by gbaranski#5119! (Modified and repaired by SeaN0X#2131)
     https://github.com/gbaranski/quizizz-cheat
       `;
 
@@ -83,8 +83,9 @@ const msg = `%c
 (async () => {
   console.log(msg, "color: red;");
 
-  const QuizInfo = await (await fetch(`https://quizizz.com/api/main/game/${getRoomHash()}`)).json();
-
+  //const QuizInfo = await (await fetch(`https://quizizz.com/api/main/game/${getRoomHash()}`)).json();
+  const QuizInfo = await (await fetch(`https://quizizz.com/_api/main/v4/students/game/${getRoomHash()}`))
+  
   let lastQuestionID = undefined
 
   setInterval(() => {
