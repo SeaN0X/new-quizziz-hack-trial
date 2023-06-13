@@ -14,7 +14,7 @@ email: root@gbaranski.com
 
 
 
-var VueElement , QuizQuestion, QuizInfo;
+//var VueElement = [] , QuizQuestion, QuizInfo;
 
 const getQuestionsElement = () => {
   const questionsElem = document.querySelector(
@@ -26,13 +26,13 @@ const getQuestionsElement = () => {
   return questionsElem;
 };
 
-const changeElementOpacity = (elem: HTMLElement) => {
+const changeElementOpacity = (HTMLElement) => {
   elem.style.opacity = "20%";
 };
 
-const highlightAnswers = (question: QuizQuestion) => {
+const highlightAnswers = (QuizQuestion) => {
   const questionsElem = getQuestionsElement();
-  const arr: VueElement[] = Array.prototype.slice.call(questionsElem.children);
+  const VueElement = Array.prototype.slice.call(questionsElem.children);
 
   if (Array.isArray(question.structure.answer) && question.structure.answer.length < 1 && question.structure.options) {
     const answers = question.structure.options.map((option) => option.text).join(" or ");
@@ -52,14 +52,8 @@ const highlightAnswers = (question: QuizQuestion) => {
   }).forEach(changeElementOpacity);
 }
 
-const getQuestionInfo = (): {
-  questionID: string;
-  roomHash: string;
-  playerId: string;
-  quizID: string;
-  roomCode: string;
-} => {
-  const rootObject = document.querySelector("body > div") as VueElement | null;
+function getQuestionInfo(questionID) {
+  const rootObject = document.querySelector("body > div") | null
   if (!rootObject) throw new Error("Could not retrieve root object");
   const vue = rootObject.__vue_app__.config.globalProperties.$store.getState().game
 
@@ -72,8 +66,8 @@ const getQuestionInfo = (): {
   };
 };
 
-const getRoomHash = (): string => {
-  const rootObject = document.querySelector("body > div") as VueElement | null;
+function getRoomHash(){
+  const rootObject = document.querySelector("body > div") | null;
   if (!rootObject) throw new Error("Could not retrieve root object");
   const vue = rootObject.__vue_app__.config.globalProperties.$store.getState().game
 
@@ -89,9 +83,9 @@ const msg = `%c
 (async () => {
   console.log(msg, "color: red;");
 
-  const quiz: QuizInfo = await (await fetch(`https://quizizz.com/api/main/game/${getRoomHash()}`)).json();
+  const QuizInfo = await (await fetch(`https://quizizz.com/api/main/game/${getRoomHash()}`)).json();
 
-  let lastQuestionID: string | undefined = undefined;
+  let lastQuestionID = undefined
 
   setInterval(() => {
     const questionInfo = getQuestionInfo();
