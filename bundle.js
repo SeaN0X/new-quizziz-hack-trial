@@ -53,7 +53,7 @@ const highlightAnswers = (QuizQuestion) => {
 }
 
 function getQuestionInfo(questionID) {
-  const rootObject = document.querySelector("body > div") || null
+  const rootObject = document.querySelector("body > div")
   if (!rootObject) throw new Error("Could not retrieve root object");
   const vue = rootObject.__vue_app__.config.globalProperties.$store.getState().game
 
@@ -67,7 +67,7 @@ function getQuestionInfo(questionID) {
 };
 
 function getRoomHash(){
-  const rootObject = document.querySelector("body > div") || null;
+  const rootObject = document.querySelector("body > div")
   if (!rootObject) throw new Error("Could not retrieve root object");
   const vue = rootObject.__vue_app__.config.globalProperties.$store.getState().game
 
