@@ -84,7 +84,7 @@ const msg = `%c
   console.log(msg, "color: red;");
 
   //const QuizInfo = await (await fetch(`https://quizizz.com/api/main/game/${getRoomHash()}`)).json();
-  const QuizInfo = await (await fetch(`https://quizizz.com/_api/main/v4/students/game/${getRoomHash()}`))
+  const quiz = await (await fetch(`https://quizizz.com/_api/main/v4/students/game/${getRoomHash()}`))
   
   let lastQuestionID = undefined
 
