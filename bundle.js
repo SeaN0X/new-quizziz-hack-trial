@@ -75,7 +75,7 @@ function getRoomHash(){
 }
 
 const msg = `%c 
-    Script created by gbaranski#5119! (Modified and repaired by SeaN0X#2131)
+    Script created by gbaranski#5119! (tried to repair by SeaN0X)
     https://github.com/gbaranski/quizizz-cheat
       `;
 
